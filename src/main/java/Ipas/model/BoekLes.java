@@ -7,19 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoekLes implements Serializable {
-    private String datum;
+    private int datum;
     private PriveLes priveLes;
     private Lid lid;
-    private static List<PriveLes> allLessen = new ArrayList<>();
+    private static List<BoekLes> allLessen = new ArrayList<>(); //lessen die geboekt zijn
 
-    public BoekLes(String datum, PriveLes priveLes, Lid lid){
+    public BoekLes(int datum, PriveLes priveLes, Lid lid){
         this.datum = datum;
         this.priveLes = priveLes;
         this.lid = lid;
 
     }
 
-    public void setDatum(String dt) {datum = dt;}
+    public void setDatum(int dt) {
+        datum = dt;}
 
     public void setPriveLes(PriveLes les) {
         this.priveLes = les;
@@ -37,15 +38,17 @@ public class BoekLes implements Serializable {
         return lid;
     }
 
-
-
-
-    public String getDatum() {return datum;}
-
-    public static List<PriveLes> getBoeklesen() {
-        return allLessen;
+    public void  addBoeklessen(BoekLes priveBoeking){
+        allLessen.add(priveBoeking);
     }
 
+    public int getDatum() {
+        return datum;}
+
+    public static List<BoekLes> getBoeklesen() {
+        return allLessen;
+    }
+    // om geboekte lessen te pakken
 
 
 }

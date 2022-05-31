@@ -3,7 +3,7 @@ package Ipas.model;
 import java.util.ArrayList;
 
 public class Acount {
-// Dit zijn de inlog gegevens die er voor zorgen wat de rang van de Acount gaat zijn
+
 
     protected String acountNaam;
 
@@ -17,7 +17,7 @@ public class Acount {
 
     protected ArrayList<Acount> gebruikserLijst = new ArrayList<>();
 
-
+// lijst met Acounts
 
 public Acount(String acountNaam, String eMail , String wachtwoord , String rangKeuze, String privateKeyNummer){
     this.acountNaam = acountNaam;
@@ -54,7 +54,7 @@ public Acount(String acountNaam, String eMail , String wachtwoord , String rangK
     public String getWachtwoord() {
         return wachtwoord;
     }
-// lijst met Acounts
+
 
     public  ArrayList<Acount> GetgebruikserLijst() {
         return gebruikserLijst;

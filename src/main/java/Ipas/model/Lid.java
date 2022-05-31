@@ -18,10 +18,10 @@ public class Lid extends Acount {
 
         ledenAantalAanwezig++;
 
-       Lid lis = new Lid(this.acountNaam,  this.eMail ,  this.wachtwoord ,  this.rangKeuze, this.privateKeyNummer);
+       Lid lid = new Lid(this.acountNaam,  this.eMail ,  this.wachtwoord ,  this.rangKeuze, this.privateKeyNummer);
 
-        if ( !ledenn.contains(lis) ){
-            ledenn.add(String.valueOf(lis));
+        if ( !ledenn.contains(lid) ){
+            ledenn.add(String.valueOf(lid));
 
 
     }}
