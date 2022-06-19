@@ -1,4 +1,4 @@
-package Ipas.webservices;
+package webservices;
 import javax.json.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

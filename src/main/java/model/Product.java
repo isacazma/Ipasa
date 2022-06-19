@@ -1,4 +1,5 @@
-package Ipas.model;
+package model;
+
 
 
 
@@ -51,8 +52,6 @@ public class Product implements Serializable {
     public static List<Product> getProducten() {
         return producten;
     }
-
-
 
 
 

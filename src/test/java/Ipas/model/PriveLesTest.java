@@ -1,5 +1,6 @@
 package Ipas.model;
 
+import model.PriveLes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
