@@ -1,65 +1,77 @@
-//package model;
-//
-//
-//
-//import java.io.Serializable;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class PriveLes implements Serializable {
-//    private String trainer;
-//    private Double prijs;
-//    private String title;
-//    private String beschrijving;
-//    private static List<PriveLes> allePriveLessen = new ArrayList<>();
-//
-//
-//    public PriveLes(String trainer, Double prijs, String title,String beschrijving){
-//        this.trainer = trainer;
-//        this.prijs = prijs;
-//        this.title = title;
-//        this.beschrijving = beschrijving;
-//        allePriveLessen.add(this);
-//    }
-//
-//    public void setTrainer(String trainer) {
-//        this.trainer = trainer;
-//    }
-//
-//    public void setPrijs(Double prijs) {
-//        this.prijs = prijs;
-//    }
-//
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public void setBeschrijving(String beschrijving) {
-//        this.beschrijving = beschrijving;
-//    }
-//
-//    public String getTrainer() {
-//        return trainer;
-//    }
-//
-//    public String getTitle() {
-//        return title;}
-//
-//    public Double getPrijs() {
-//        return prijs;}
-//
-//    public String getBeschrijving() {
-//        return beschrijving;}
-//
-//
-//    public static List<PriveLes> getAllePriveLessen() {
-//        return allePriveLessen;
-//    }
-//
-//
-//
-//
-//
-//
-//
-//}
+package model;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
+public class PriveLes {
+
+    private String name;
+    private static List<PriveLes> allPriveLes = new ArrayList<>();
+    private ArrayList<User> losseLessen = new ArrayList<User>() ;
+
+
+
+
+    public PriveLes(String nm) {
+        this.name = nm;
+
+        if (!allPriveLes.contains(this)) allPriveLes.add(this);
+    }
+
+    public static boolean addUser(User g,PriveLes gg){
+        boolean fout = false;
+        if (allPriveLes.contains(gg)) {
+            if(gg.losseLessen.size() <= 60){
+                gg.losseLessen.add(g);
+                fout = true;
+        }
+
+        } return fout;}
+
+
+    public String getName() {
+        return name;
+    }
+    public void setPriveName(String name) {
+        this.name = name;
+    }
+
+
+
+    public static List<PriveLes> getAllPriveLes() {
+        return Collections.unmodifiableList(allPriveLes);
+    }
+
+    public static boolean verwijderlosseLessen(User g,PriveLes gg){
+        boolean fout = false;
+        if(gg.losseLessen.contains(g)){
+           gg.losseLessen.remove(g);
+                fout = true;
+            }
+
+        return fout;}
+
+    public static boolean verwijderLes(PriveLes g){
+        boolean fout = false;
+        if(allPriveLes.contains(g)){
+            allPriveLes.remove(g);
+            fout = true;
+        } return  fout;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PriveLes product = (PriveLes) o;
+        return name.equals(product.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+}
+

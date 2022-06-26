@@ -1,61 +1,40 @@
 package model;
 
-
-
-
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
-public class Product implements Serializable {
-    private String productNaam;
-    private int productNr;
-    private String beschrijving;
-    private static List<Product> producten = new ArrayList<>();
+public class Product implements NamedObject {
+    private String name;
+    private static List<Product> allProducts = new ArrayList<>();
 
-
-    public Product(String product, Double prijs, int productNr, String beschrijving){
-        this.productNaam = product;
-
-        this.productNr = productNr;
-        this.beschrijving = beschrijving;
-        producten.add(this);
+    public Product(String nm) {
+        this.name = nm;
+        if (!allProducts.contains(this)) allProducts.add(this);
     }
 
-    public void setProductNaam(String productNaam) {
-        this.productNaam = productNaam;
+    public String getName() {
+        return name;
+    }
+    public void setProductName(String name) {
+        this.name = name;
     }
 
-
-
-    public void setProductNr(int productNr) {
-        this.productNr = productNr;
+    public static List<Product> getAllProducts() {
+        return Collections.unmodifiableList(allProducts);
     }
 
-    public void setBeschrijving(String beschrijving) {
-        this.beschrijving = beschrijving;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return name.equals(product.name);
     }
 
-    public String getProductNaam() {
-        return productNaam;
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
-
-    public int getProductNr() {
-        return productNr;}
-
-
-
-    public String getBeschrijving() {
-        return beschrijving;}
-
-
-    public static List<Product> getProducten() {
-        return producten;
-    }
-
-
-
-
-
-
 }
